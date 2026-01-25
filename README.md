@@ -23,3 +23,23 @@ My journey to Azure Solutions Architect &amp; AI Engineering.
 * Deployed Linux VM (`vm-test-01`) into the Web Subnet.
 * Successfully SSH'd via Port 22 using the secure IP whitelist.
 * **Outcome:** Identity verified. Network is secure.
+
+### ✅ Chapter 2: The Vault (Jan 25, 2026)
+**Objective:** Build a secure, private storage system for AI models.
+
+#### 🏗️ Architecture Built
+* **The Vault (Storage):** `stlearning<yourname>`
+    * *Tier:* Cool / LRS (Cost Optimized).
+    * *Security:* Public Internet Access **DISABLED**.
+* **The Tunnel (Private Endpoint):** `pe-storage-01`
+    * *Connection:* Connected `snet-data` directly to Blob Storage.
+    * *Result:* Storage is only accessible from inside the Private Island.
+* **The Identity (Security):**
+    * Enabled **Managed Identity** on the VM.
+    * Assigned RBAC Role: **Storage Blob Data Contributor**.
+    * *Outcome:* Accessed data without a single password or access key.
+
+#### 🧪 Verification (The Heist)
+* Deployed Spy VM (`vm-vault-01`) into the network.
+* Logged in via Identity: `az login --identity`.
+* Successfully retrieved `secret.txt` through the private tunnel.
